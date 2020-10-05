@@ -1,0 +1,35 @@
+# Use postgres/example user/password credentials
+version: '3.1'
+
+services:
+
+  mysql:
+    image: mysql
+    restart: unless-stopped
+    ports:
+      - "3306:33060"
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: users_laravel
+
+  app:
+    build: .
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    #volumes:
+    #  - ..:/var/www/app
+    depends_on:
+      - mysql
+
+  pma:
+    image: phpmyadmin
+    restart: unless-stopped
+    ports:
+      - "81:80"
+    environment:
+      PMA_HOST: mysql
+      PMA_USER: root
+      PMA_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    depends_on:
+      - mysql

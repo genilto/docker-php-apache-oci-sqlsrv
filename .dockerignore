@@ -1,0 +1,12 @@
+node_modules
+vendor
+README.md
+Dockerfile
+docker-compose.yml
+LICENSE
+.env.example
+.dockerignore
+.DS_Store
+.git
+.gitattributes
+.gitignore
