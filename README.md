@@ -10,7 +10,7 @@ docker build . --rm --tag genilto/php-apache-oci-sqlsrv:latest
 
 # Para rodar o container manualmente, caso queira ver como ficou
 ```bash
-docker run -p 80:80 -d php-apache-oci-sqlsrv:latest
+docker run -p 80:80 -d genilto/php-apache-oci-sqlsrv:latest
 ```
 
 # Caso queira rodar o compose, irá subir o mysql, app e um phpmyadmin
